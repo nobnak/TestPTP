@@ -21,8 +21,8 @@ public static class PTP {
 		var uniLength = new Union32() { intdata = length };
 		var uniType = new Union32() { intdata = type };
 		
-		uniLength.Assign(packet, 0);
-		uniType.Assign(packet, 4);
+		uniLength.ToBytes(packet, 0);
+		uniType.ToBytes(packet, 4);
 		Array.Copy(data, 0, packet, 8, data.Length);
 		
 		return packet;
